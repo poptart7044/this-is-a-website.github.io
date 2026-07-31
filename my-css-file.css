@@ -1,0 +1,94 @@
+/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #0f1117;
+    color: #f3f4f6;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+}
+
+/* Page Title */
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+}
+
+/* Feed Layout using CSS Grid */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Container wrapper styling applied directly to grid elements */
+/* We convert the body into a container for the links */
+body > a {
+    display: inline-block;
+    margin-bottom: 16px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #1f2937;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Let's wrap the links into a responsive grid container using CSS */
+/* Note: Since your HTML has `<a>` tags direct children of `<body>`, 
+   we can target them via a CSS Grid layout applied to the body. */
+body {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Make the H1 span across all columns */
+body > h1 {
+    grid-column: 1 / -1;
+    margin-bottom: 1rem;
+}
+
+/* Link and Image Styling */
+body > a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #161922;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    aspect-ratio: 1 / 1; /* Keeps cards neat and uniform */
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+body > a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures images fill the card nicely without distortion */
+    transition: transform 0.3s ease;
+}
+
+/* Interactive Hover Effects */
+body > a:hover {
+    transform: translateY(-4px);
+    border-color: rgba(99, 102, 241, 0.4);
+    box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.2);
+}
+
+body > a:hover img {
+    transform: scale(1.05);
+}
